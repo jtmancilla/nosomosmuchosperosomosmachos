@@ -1,1 +1,0 @@
-# Ir agregando código de la tarea de data mining (Tarea2)
