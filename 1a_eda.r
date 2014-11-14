@@ -11,10 +11,12 @@ algas.data  <- load()
 # Primeras funciones de exploración
 
 #FUNCIÓN eda1, para explorar las variables individualmente. 
-# le indicas el df y el número de columnas a explorar.
+# le indicas el df y el número de columnas a explorar o 
+#un vector con las columnas que quieres visualizar ej. c(3,6,12,11)
 
 
 eda1 <- function(df,n=1) {
+    
     #gráfica por columna. df = dataframe, n=numero de columnas a visualizar.
     
     require(dplyr)
@@ -24,8 +26,13 @@ eda1 <- function(df,n=1) {
     require(grid)
     require(ggthemes)
     
+    if (length(n)==1){
+        ncol  <-  sample(1:ncol(df),n,replace=F)  #seleccionando por muestreo las columnas a graficar
+    }
     
-    ncol  <-  sample(1:ncol(df),n,replace=F)  #seleccionando por muestreo las columnas a graficar
+    else{
+        ncol  <-  n
+    }
     
     for (n in ncol){
         
@@ -89,19 +96,29 @@ eda1 <- function(df,n=1) {
 }
 
 
-#Ejemplo para visualizar al df= algas.data, 4 columnas de manera aleatoria.
+#Ejemplo para visualizar al dataframe= algas.data, y 4 columnas de manera aleatoria.
+
 eda1(algas.data,4)
 
+#Ejemplo para visualizar al dataframe= algas.data, y 5 columnas indicadas (vector con el numero de las columnas).
+
+eda1(algas.data,c(3,9,5,11,16))
 
 
 
 #FUNCIÓN eda2, función de exploración para visualizar la relación de dos
-#variables.  Le indicas el df y la posición de la variable base que no 
-#se moverá contra la cual se compará las otras variables.
+#variables.  Le indicas el dataframe y la posición de la variable base que no 
+#se moverá  y le indicas o no contra que columnas se compará. 
+#Si no se especifica el vector con el numero de las columnas a comparar,
+# la base se compara con todas las columnas.
 
 
-eda2  <-  function(df,n){
+
+eda2  <-  function(df,n,col=NULL){
     #df = datafrema, n= el numero de la columna con la covariable base
+    # col = el vector con el número de las columnas en específico contra
+    #la cual comparar
+    
     require(dplyr)
     require(scales)
     require(ggplot2)
@@ -109,8 +126,15 @@ eda2  <-  function(df,n){
     require(grid)
     require(ggthemes)
     
-    ncol  <- 1:ncol(df)
-    ncol  <- ncol[-n]
+    if (length(col)==0){
+        ncol  <- 1:ncol(df)
+        ncol  <- ncol[-n]    
+        
+    }
+    else{
+        ncol  <- col
+    }
+    
     
     # valiando si la covariable base es categorica o numérica
     
@@ -201,15 +225,19 @@ eda2  <-  function(df,n){
     }
 }
 
-#Ejemplo con el df=algas.data, con la columna base V1, la cual es una
-#variable categórica
+#Ejemplo con el dataframe=algas.data, con la columna base V1, la cual es una
+#variable categórica. y se compara contra todas las otras columnas.
 
 eda2(algas.data,1)
 
 
 #Ejemplo con el df=algas.data, con la columna base V6, la cual es una
-#variable numérica
+#variable numérica. y se compara contra todas las otras columnas.
 
 eda2(algas.data,6)
 
+#Ejemplo con el dataframe=algas.data, con la columna base V6, la cual es una
+#variable numérica. y se compara con ciertas columnas indicadas.
+
+eda2(algas.data,6, c(4,3,12,18))
 
