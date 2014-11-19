@@ -1,0 +1,62 @@
+# somos menos weyes, por eso hicimos esto.
+
+
+ds$"PO4"  <- (ds$"PO4"-mean(ds$"PO4",na.rm=T))/sd(ds$"PO4",na.rm=T)
+ds$"oPO4"  <-  (ds$oPO4 - mean(ds$oPO4,na.rm=T))/ sd(ds$oPO4,na.rm=T)
+ds$"mxPH"  <- (ds$"mxPH"-mean(ds$"mxPH",na.rm=T))/sd(ds$"mxPH",na.rm=T)
+ds$"mnO2"  <-  (ds$mnO2 - mean(ds$mnO2 ,na.rm=T))/ sd(ds$mnO2 ,na.rm=T)
+
+ds$Cl  <- (ds$Cl-mean(ds$Cl,na.rm=T))/sd(ds$Cl,na.rm=T)
+ds$NO3  <-  (ds$NO3 - mean(ds$NO3,na.rm=T))/ sd(ds$NO3,na.rm=T)
+ds$NO4  <- (ds$NO4 -mean(ds$NO4,na.rm=T))/sd(ds$NO4,na.rm=T)
+ds$Chla  <-  (ds$Chla - mean(ds$Chla ,na.rm=T))/ sd(ds$Chla ,na.rm=T)
+
+ds$a1  <- (ds$a1-mean(ds$a1,na.rm=T))/sd(ds$a1,na.rm=T)
+ds$a2  <-  (ds$a2 - mean(ds$a2,na.rm=T))/ sd(ds$a2,na.rm=T)
+ds$a3  <- (ds$a3 -mean(ds$a3,na.rm=T))/sd(ds$a3,na.rm=T)
+ds$a4  <-  (ds$a4 - mean(ds$a4,na.rm=T))/ sd(ds$a4 ,na.rm=T)
+ds$a5  <-  (ds$a5 - mean(ds$a5,na.rm=T))/ sd(ds$a5,na.rm=T)
+ds$a6  <- (ds$a6 -mean(ds$a6,na.rm=T))/sd(ds$a6,na.rm=T)
+ds$a7  <-  (ds$a7 - mean(ds$a7,na.rm=T))/ sd(ds$a7,na.rm=T)
+
+
+
+# cambio de NA por mean
+
+ds$"mxPH"   <-  ifelse(!is.na(ds$"mxPH"),ds$"mxPH",mean(ds$"mxPH",na.rm=T))
+ds$"mnO2"   <-  ifelse(!is.na(ds$"mnO2"),ds$"mnO2",mean(ds$"mnO2",na.rm=T))
+
+ds$"Cl"   <-  ifelse(!is.na(ds$"Cl"),ds$"Cl",mean(ds$"Cl",na.rm=T))
+ds$"Chla"   <-  ifelse(!is.na(ds$"Chla"),ds$"Chla",mean(ds$"Chla",na.rm=T))                    
+
+# somos menos weyes, por eso hicimos esto.
+
+
+ds$"PO4"  <- (ds$"PO4"-mean(ds$"PO4",na.rm=T))/sd(ds$"PO4",na.rm=T)
+ds$"oPO4"  <-  (ds$oPO4 - mean(ds$oPO4,na.rm=T))/ sd(ds$oPO4,na.rm=T)
+ds$"mxPH"  <- (ds$"mxPH"-mean(ds$"mxPH",na.rm=T))/sd(ds$"mxPH",na.rm=T)
+ds$"mnO2"  <-  (ds$mnO2 - mean(ds$mnO2 ,na.rm=T))/ sd(ds$mnO2 ,na.rm=T)
+
+ds$Cl  <- (ds$Cl-mean(ds$Cl,na.rm=T))/sd(ds$Cl,na.rm=T)
+ds$NO3  <-  (ds$NO3 - mean(ds$NO3,na.rm=T))/ sd(ds$NO3,na.rm=T)
+ds$NO4  <- (ds$NO4 -mean(ds$NO4,na.rm=T))/sd(ds$NO4,na.rm=T)
+ds$Chla  <-  (ds$Chla - mean(ds$Chla ,na.rm=T))/ sd(ds$Chla ,na.rm=T)
+
+ds$a1  <- (ds$a1-mean(ds$a1,na.rm=T))/sd(ds$a1,na.rm=T)
+ds$a2  <-  (ds$a2 - mean(ds$a2,na.rm=T))/ sd(ds$a2,na.rm=T)
+ds$a3  <- (ds$a3 -mean(ds$a3,na.rm=T))/sd(ds$a3,na.rm=T)
+ds$a4  <-  (ds$a4 - mean(ds$a4,na.rm=T))/ sd(ds$a4 ,na.rm=T)
+ds$a5  <-  (ds$a5 - mean(ds$a5,na.rm=T))/ sd(ds$a5,na.rm=T)
+ds$a6  <- (ds$a6 -mean(ds$a6,na.rm=T))/sd(ds$a6,na.rm=T)
+ds$a7  <-  (ds$a7 - mean(ds$a7,na.rm=T))/ sd(ds$a7,na.rm=T)
+
+
+
+# cambio de NA por mean
+
+ds$"mxPH"   <-  ifelse(!is.na(ds$"mxPH"),ds$"mxPH",mean(ds$"mxPH",na.rm=T))
+ds$"mnO2"   <-  ifelse(!is.na(ds$"mnO2"),ds$"mnO2",mean(ds$"mnO2",na.rm=T))
+
+ds$"Cl"   <-  ifelse(!is.na(ds$"Cl"),ds$"Cl",mean(ds$"Cl",na.rm=T))
+ds$"Chla"   <-  ifelse(!is.na(ds$"Chla"),ds$"Chla",mean(ds$"Chla",na.rm=T))                    
+
